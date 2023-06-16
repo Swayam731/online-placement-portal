@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+    <head>
+        <title>Login Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        body{
+            background-color: aliceblue;
+        }
+        .heading{
+            color:#ed8611;
+            /* background-color: grey; */
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', 'sans-serif';
+            margin: 25px auto;
+
+            text-align: center;
+        }
+        .credential{
+            width: 500px;
+            height: 280px;
+            text-align: center;
+            border: 3px solid #fc8803;
+            border-radius: 7px;
+            background-color: #ffffff;
+            margin: 20px auto;
+            /* padding-bottom: 200px; */
+            /* justify-content: center; */
+            box-sizing: border-box;
+        }
+        #username{
+            text-align: center;
+            display:inline-block;
+            margin: 14px 19px;
+            padding:4px 3px;
+            width:90%;  
+        }
+        #username:hover
+        {
+            width: 90%;
+        }
+        #password{
+            text-align: center;
+            display:inline-block;
+            margin: 14px 19px;
+            padding:4px 3px;
+            width:90%;
+        }
+        .btn{
+            background-color: #f0942b;
+            color:white;
+            padding:6px;
+            width:90%;
+            border:none;
+            cursor: pointer;
+            font-size: medium;
+            border-radius: 4px;
+        }
+        .btn:hover{
+            background-color: #f2860a;
+            border: 1px solid black;
+            border-radius: 3px;
+        }
+        .btn:active{
+            background-color: #663702;
+        }
+        #line{
+        width:90%;
+        }
+       .user_success, user_success:focus
+       {
+            outline: none;
+           border: 2px solid green;
+       }
+       .user_fail,user_fail:focus
+       {
+           outline: none;
+           border: 2px solid red;
+       }
+       .formerror{
+           color: red;
+       }
+    </style>
+    <script type="text/javascript">
+        function validate()
+        {
+            var uname=document.loginform.username.value;
+            if(uname=="")
+            {
+                alert("username can't be null!");
+                document.loginform.username.focus();
+                return false;
+            }
+            if((uname.length<5)|| (uname.length>15))
+            {
+                alert("username must be 5 to 15 characters long!");
+                document.loginform.username.focus();
+                return false;
+            }
+            var pass = document.loginform.password.value;
+            if(pass=="")
+            {
+                alert("password can't be null!");
+                document.loginform.password.focus();
+                return false;
+            }
+            else if(pass.length<3 || pass.length>15)
+            {
+                alert("password must be 3 to 15 characters long!");
+                document.loginform.password.focus();
+                return false;
+            }
+            
+        }
+            
+        </script>
+    </head>
+    <body>
+        <h1 class="heading">Welcome to placement management</h1>
+    <div class="credential">
+        <form action="StudentLoginChecker" name="loginform" method="post">
+            <h2 class="heading">Login Here!</h2>
+            <input type="text" name="username" id="username" placeholder="Enter user name"><b><span class="formerror"></span></b>
+            <input type="password" name="password" id="password" placeholder="Enter password">
+            <button class="btn" onClick="return validate();">login</button>
+            <hr id="line">
+            <p>login as admin<b><a href="login.html">click here</a></b></p>
+        </form>
+        
+    </div>
+        
+    </body>
+</html>
